@@ -1,4 +1,4 @@
-package com.example.eurekausergroup;
+package com.book.eurekausergroup;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
