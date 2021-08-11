@@ -2,6 +2,7 @@ package com.book.eurekausergroup.controller;
 
 import com.book.eurekausergroup.dto.UserDto;
 import com.book.eurekausergroup.service.UserService;
+import com.book.eurekausergroup.vo.RequestUser;
 import com.book.eurekausergroup.vo.ResponseUser;
 import com.netflix.discovery.converters.Auto;
 import lombok.extern.slf4j.Slf4j;
@@ -20,8 +21,8 @@ import javax.ws.rs.Path;
 @RequestMapping("/")
 @Slf4j
 public class EurekaUserController {
-    private UserService userService;
-    private Environment env;
+    private final UserService userService;
+    private final Environment env;
 
     @Autowired
     public EurekaUserController(UserService userService, Environment env) {
@@ -35,11 +36,11 @@ public class EurekaUserController {
     }
 
     @PostMapping("/users")
-    public ResponseEntity<ResponseUser> createUser(???) {
+    public ResponseEntity<ResponseUser> createUser(@RequestBody RequestUser user) {
         ModelMapper mapper = new ModelMapper();
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 
-        UserDto userDto = mapper.map(???, UserDto.class);
+        UserDto userDto = mapper.map(user, UserDto.class);
         userService.createUser(userDto);
 
         ResponseUser responseUser = mapper.map(userDto, ResponseUser.class);

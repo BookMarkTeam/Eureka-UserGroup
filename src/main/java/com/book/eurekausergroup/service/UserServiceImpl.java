@@ -16,7 +16,7 @@ import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService{
-    UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository) {
@@ -58,7 +58,7 @@ public class UserServiceImpl implements UserService{
 
     /**
      * @brief 아이디로 UserDto 객체 DB에서 가져오는 함수
-     * @data 21/07/18
+     * @date 21/07/18
      * @param userId : 로그인한 아이디
      * @return UserDto : 로그인한 아이디의 UserDto 객체
      */

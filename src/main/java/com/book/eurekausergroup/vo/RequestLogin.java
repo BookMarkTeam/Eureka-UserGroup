@@ -3,8 +3,7 @@ package com.book.eurekausergroup.vo;
 import lombok.Data;
 
 @Data
-public class ResponseUser {
-    private String name;
-    private String token;
+public class RequestLogin {
     private String email;
+    private String uid;
 }
